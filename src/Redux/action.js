@@ -6,7 +6,7 @@ export const getdata = (payload) => (dispatch) => {
 console.log(payload)
   return axios
     .get(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${payload}&key=AIzaSyDXhep2p8gDJNWgB_obPvnBhaw52oRop2c`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${payload}&key=AIzaSyDXhep2p8gDJNWgB_obPvnBhaw52oRop2c`
     )
     .then((r) => {
       // console.log(r.data)

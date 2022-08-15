@@ -1,33 +1,55 @@
 import { useSelector } from 'react-redux'
-import { Box , SimpleGrid } from "@chakra-ui/react"
+import { Box, SimpleGrid, Heading, HStack } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
+// import { videoData } from "../utils/data"
+import { useEffect } from 'react'
 
 const Home = ({ e }) => {
+
+  useEffect(()=>{
+    document.title="YouTube"
+  },[])
 
   const videoData = useSelector(store => store.Video)
 
   console.log(videoData)
 
   return (
-    <Box>
-      <SimpleGrid columns={[2, null, 3]} spacing='40px'>
+    <HStack>
+      <Box w="15rem"  >
         {
-         videoData && videoData.map((e) => {
 
-            return (
-              <Box key={e.etag} >
-                  <Box
-                    as="iframe"
-                    // title="naruto"
-                    src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                    // allowFullScreen
-                  />
-              </Box>
-            )
 
-          })
+
         }
-      </SimpleGrid>
-    </Box>
+      </Box>
+      <Box m={5}>
+        <SimpleGrid columns={[2, null, 4]} spacing='20px'>
+          {
+            videoData && videoData.map((e) => {
+
+              return (
+
+                <Box key={e.etag}>
+                  <Link to={`/${e.id.videoId}`}>
+                    <Box
+                      as="iframe"
+                      w="100%"
+                      src={`https://www.youtube.com/embed/${e.id.videoId}`}
+                    // allowFullScreen
+                    />
+                    <br />
+                    <Heading fontSize={15} >{e.snippet.title}</Heading>
+                  </Link>
+                </Box>
+
+              )
+
+            })
+          }
+        </SimpleGrid>
+      </Box>
+    </HStack>
   )
 }
 
