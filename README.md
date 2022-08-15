@@ -1,5 +1,5 @@
 # YouTube Clone
-## Hi folks , I'm try to youtube webpage . for this I'm use Some tools
+## Hi folks , I'm try to clone youtube webpage . for this I'm use Some tools
 # 1.React-Redux 
 # 2.Axios 
 # 3.youbube-api 
