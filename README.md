@@ -4,5 +4,5 @@
 # 2.Axios 
 # 3.youbube-api 
 # 4.Redux-thunk 
-# 5.Hooks -> useState , useEffect, useParams ect
+# 5.Hooks -> useState , useEffect, useParams , useSelector , useDispatcher ect
 # 6.React-Router etc 
