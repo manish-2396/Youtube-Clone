@@ -6,6 +6,8 @@ import { Box, Button, Input, Center, Image, Spacer, HStack, Avatar } from "@chak
 import { BsSearch } from 'react-icons/bs'
 import { Link } from "react-router-dom"
 import profile from "../Picture/manish.jpg"
+import video from "../Image/videoplus.png"
+import bell from "../Image/bell-regular.svg"
 
 const Navbar = () => {
 
@@ -28,29 +30,36 @@ const Navbar = () => {
 
 
   return (
-    <Center m="1rem">
-      <Box w="3rem">
-
-      </Box>
-      <Box w="100px">
-        <Link to="/" >
-          <Image src={logo} />
-        </Link>
-      </Box>
-      <Spacer />
-      <Box borderColor="black">
-        <HStack mr={10}>
-          <Input width="600px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
-          <Button onClick={handleClick} borderRadius={0} >
-            <BsSearch />
-          </Button>
+    <div>
+      <Center >
+        <Box w="200px" alignItems="start" >
+          <Link to="/" >
+            <Image src={logo} />
+          </Link>
+        </Box>
+        <Spacer />
+        <Box borderColor="black" alignItems="center" >
+          <HStack mr={10}>
+            <Input width="600px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+            <Button onClick={handleClick} borderRadius={0} >
+              <BsSearch />
+            </Button>
+          </HStack>
+        </Box>
+        <Spacer />
+        <HStack alignItems="end" gap="25px">
+          <Box>
+            <Image w="35px" src={video} />
+          </Box>
+          <Box>
+            <Image w="35px"  src={bell} />
+          </Box>
+          <Box>
+            <Avatar w="35px" h="35px" src={profile} />
+          </Box>
         </HStack>
-      </Box>
-      <Spacer />
-      <Box >
-        <Avatar src={profile} />
-      </Box>
-    </Center>
+      </Center>
+    </div>
   )
 }
 
