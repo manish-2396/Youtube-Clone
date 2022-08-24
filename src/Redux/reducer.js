@@ -9,7 +9,7 @@ const init = {
 export const reducer = (state = init , action) => {
 
  
-    // console.log(action.payload)
+ 
 
     switch(action.type){
 

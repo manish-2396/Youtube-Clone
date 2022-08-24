@@ -8,17 +8,22 @@ import { Link } from "react-router-dom"
 import profile from "../Picture/manish.jpg"
 import video from "../Image/videoplus.png"
 import bell from "../Image/bell-regular.svg"
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
 
   const [text, setText] = useState("")
   const [data, setData] = useState("")
+  let navigate = useNavigate();
 
 
   const dispatch = useDispatch();
 
   const handleClick = () => {
     setData(text)
+    navigate("/", { replace: true });
+
   }
 
 
@@ -30,36 +35,36 @@ const Navbar = () => {
 
 
   return (
-    <div>
-      <Center >
-        <Box w="200px" alignItems="start" >
-          <Link to="/" >
-            <Image src={logo} />
-          </Link>
-        </Box>
-        <Spacer />
-        <Box borderColor="black" alignItems="center" >
-          <HStack mr={10}>
-            <Input width="600px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
-            <Button onClick={handleClick} borderRadius={0} >
-              <BsSearch />
-            </Button>
-          </HStack>
-        </Box>
-        <Spacer />
-        <HStack alignItems="end" gap="25px">
-          <Box>
-            <Image w="35px" src={video} />
-          </Box>
-          <Box>
-            <Image w="35px"  src={bell} />
-          </Box>
-          <Box>
-            <Avatar w="35px" h="35px" src={profile} />
-          </Box>
+
+    <Center maxH={20} ml="1rem" mr="1rem" >
+      <Box w="100px" alignItems="start" >
+        <Link to="/" >
+          <Image src={logo} />
+        </Link>
+      </Box>
+      <Spacer />
+      <Box borderColor="black" alignItems="center" >
+        <HStack mr={10}>
+          <Input width="600px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+          <Button onClick={handleClick} borderRadius={0} >
+            <BsSearch />
+          </Button>
         </HStack>
-      </Center>
-    </div>
+      </Box>
+      <Spacer />
+      <HStack alignItems="end" gap="25px">
+        <Box>
+          <Image w="20px" src={video} />
+        </Box>
+        <Box>
+          <Image w="20px" src={bell} />
+        </Box>
+        <Box>
+          <Avatar w="30px" h="30px" src={profile} />
+        </Box>
+      </HStack>
+    </Center>
+
   )
 }
 

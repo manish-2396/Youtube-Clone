@@ -1,11 +1,13 @@
-
-
-import { AspectRatio, Box, Heading } from '@chakra-ui/react';
+import { AspectRatio, Box, Heading, Flex, Spacer, HStack, Image  , Text} from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import { videoData } from "../utils/data"
 import { useSelector } from 'react-redux'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import like from '../Image/like.png';
+import dislike from '../Image/dislike.png';
+import share from '../Image/share.png';
+import clip from '../Image/clip.png';
 
 const Single = () => {
 
@@ -15,7 +17,7 @@ const Single = () => {
 
   const data = videoData.filter(e => e.id.videoId === id)
 
-  console.log(data)
+
 
 
 
@@ -23,11 +25,6 @@ const Single = () => {
     document.title = data[0].snippet.title;
   }, [data])
 
-
-
-
-
-  // console.log(id)
 
   return (
     <Box>
@@ -40,30 +37,53 @@ const Single = () => {
           />
 
         </AspectRatio>
-        <br/>
+        <br />
         <Heading fontSize={20} maxW="53rem" textAlign="left" >{data[0].snippet.title}</Heading>
-        <Box border="1px solid black" maxW="53rem" >
-          manish
+        <Box maxW="53rem"   >
+          <Flex  >
+            <Spacer />
+            <HStack p='4' style={{ cursor:"pointer" }} >
+              <Image maxW="5rem" src={like} />
+              <Heading fontSize="1rem" >Like</Heading>
+            </HStack>
+            <HStack p='4' style={{ cursor:"pointer" }} >
+              <Image maxW="5rem" src={dislike} />
+              <Heading fontSize="1rem" >Dislike</Heading>
+            </HStack>
+            <HStack p='4' style={{ cursor:"pointer" }} >
+              <Image maxW="5rem" src={share} />
+              <Heading fontSize="1rem" >Share</Heading>
+            </HStack>
+            <HStack p='4' style={{ cursor:"pointer" }} >
+              <Image maxW="5rem" src={clip} />
+              <Heading fontSize="1rem" >Clip</Heading>
+            </HStack>
+          </Flex>
         </Box>
       </Box>
-      <Box pos="absolute" right="5rem" maxW="20rem" top="6rem">
+      <Box pos="absolute" right="1rem" maxW="25rem" top="5.6rem">
         {
           videoData && videoData.map((e) => {
 
             return (
 
-              <Box key={e.etag} maxW="100%">
-                <Link to={`/${e.id.videoId}`}>
-                  <Box
-                    as="iframe"
-                    w="100%"
-                    src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                  />
-                  <br />
-                  <Heading fontSize={10} >{e.snippet.title}</Heading>
-                </Link>
-              </Box>
+              <HStack >
+                <Box key={e.etag} maxW="100%"  >
+                  <Link to={`/${e.id.videoId}`}>
+                    <Box
+                      as="iframe"
+                      w="100%"
+                      src={`https://www.youtube.com/embed/${e.id.videoId}`}
+                    />
+                    <br />
 
+                  </Link>
+                </Box>
+                <Box maxW="12rem" >
+                  <Heading fontSize="1.0rem" textAlign="start" >{e.snippet.title}</Heading>
+                  <Text fontSize="1rem" >Channel Name :{e.snippet.channelTitle}</Text>
+                </Box>
+              </HStack>
             )
 
           })

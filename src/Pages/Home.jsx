@@ -21,7 +21,9 @@ const Home = () => {
     document.title = "YouTube"
   })
 
-  const videoData = useSelector(store => store.Video)
+  const Data = useSelector(store => store)
+
+  const videoData = Data.Video
 
   console.log(videoData)
 
@@ -63,6 +65,8 @@ const Home = () => {
         </HStack>
       </Box>
       <Box m={3}>
+        <br />
+
         <SimpleGrid columns={[2, null, 4]} spacing='20px'>
           {
             videoData && videoData.map((e) => {
@@ -94,12 +98,3 @@ const Home = () => {
 
 export default Home
 
-// {/* <iframe width="300"
-//                   height="150" src={`https://www.youtube.com/embed/${e.id.videoId}`}
-//                   title="YouTube video player"
-//                   frameborder="0"
-//                   allow="accelerometer; autoplay; 
-//                     clipboard-write; encrypted-media; 
-//                     gyroscope; picture-in-picture"
-//                   allowfullscreen>
-//                 </iframe> */}

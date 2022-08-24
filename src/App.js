@@ -7,6 +7,7 @@ import Single from "./Pages/Single"
 function App() {
   return (
     <div className="App">
+      <br/>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
