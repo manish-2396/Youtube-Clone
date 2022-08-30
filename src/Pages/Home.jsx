@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Box, SimpleGrid, Heading, HStack, Image } from "@chakra-ui/react"
+import { Box, SimpleGrid, Heading, HStack, Image  , Show } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 // import { videoData } from "../utils/data"
 import { useEffect } from 'react'
@@ -29,7 +29,9 @@ const Home = () => {
 
   return (
     <HStack alignItems="start" >
+      <Show above="lg" >
       <Box w="30rem" m="2rem"  >
+      
         <HStack alignItems="start" mt="20px" >
           <Image w="30px" src={homesolid} mr="1rem" />
           <Heading fontSize="14px">Home</Heading>
@@ -63,11 +65,12 @@ const Home = () => {
           <Image w="30px" src={like} mr="1rem" />
           <Heading fontSize="14px" >Like Video</Heading>
         </HStack>
+        
       </Box>
-      <Box m={3}>
+      </Show>
+      <Box m="5%">
         <br />
-
-        <SimpleGrid columns={[2, null, 4]} spacing='20px'>
+        <SimpleGrid columns={[1, 1, 4]} spacing='20px'>
           {
             videoData && videoData.map((e) => {
 
@@ -79,7 +82,6 @@ const Home = () => {
                       as="iframe"
                       w="100%"
                       src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                    // allowFullScreen
                     />
                     <br />
                     <Heading fontSize={15} >{e.snippet.title}</Heading>
