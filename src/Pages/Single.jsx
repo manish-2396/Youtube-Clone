@@ -142,7 +142,9 @@ const Single = () => {
                           w="10rem%"
                           src={`https://www.youtube.com/embed/${e.id.videoId}`}
                         />
+                        
                         <br />
+
                       </Link>
                     </Box>
                     <Box maxW="20rem" height="auto" >
