@@ -3,7 +3,7 @@ import * as types from './actionTypes';
 const init = {
     isLoading:false,
     isError:false,
-    Video: []
+    Video: {}
 }
 
 export const reducer = (state = init , action) => {
@@ -16,7 +16,8 @@ export const reducer = (state = init , action) => {
         case types.GET_DATA_REQUEST: {
             return {
                 isLoading:true,
-                isError:false
+                isError:false,
+                Video:{}
             }
         }
 

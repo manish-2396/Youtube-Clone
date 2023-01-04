@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useDispatch } from 'react-redux'
 import logo from "../Picture/homo-logo.png";
 import { getdata } from '../Redux/action';
@@ -14,24 +14,25 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
   const [text, setText] = useState("")
-  const [data, setData] = useState("")
   let navigate = useNavigate();
 
 
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    setData(text)
     navigate("/", { replace: true });
+    get()
 
   }
 
 
 
-
-  useEffect(() => {
-    dispatch(getdata(data))
-  }, [data, dispatch])
+function get(){
+  dispatch(getdata(text))
+}
+  // useEffect(() => {
+   
+  // }, [data , text, dispatch])
 
 
   return (
@@ -46,7 +47,7 @@ const Navbar = () => {
       <Show above="md" > 
       <Box borderColor="black" alignItems="center" >
         <HStack mr={10}>
-          <Input m="auto" width="600px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+          <Input m="auto" width="600px" borderRadius={0} borderColor="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
           <Button onClick={handleClick} borderRadius={0} >
             <BsSearch />
           </Button>
@@ -56,7 +57,7 @@ const Navbar = () => {
       <Show below="md">
       <Box borderColor="black" alignItems="center" >
         <HStack mr={10}>
-          <Input m="auto" width="150px" borderRadius={0} border-Color="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+          <Input m="auto" width="150px" borderRadius={0} borderColor="#fff" type="text" placeholder="Search..." onChange={(e) => setText(e.target.value)} />
           <Button onClick={handleClick} borderRadius={0} >
             <BsSearch />
           </Button>
