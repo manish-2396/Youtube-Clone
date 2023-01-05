@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [text, setText] = useState("");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("indian");
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
