@@ -2,8 +2,7 @@ import axios from "axios";
 import * as types from "./actionTypes";
 
 
-let api1 = "AIzaSyDLCFAFRPQCrrdC2_xNgXJV6DvGDSOjvkQ"
-// let api2 = "AIzaSyDXhep2p8gDJNWgB_obPvnBhaw52oRop2c"
+let api1 = ""
 
 export const getdata = (payload) => (dispatch) => {
   dispatch({ type: types.GET_DATA_REQUEST });
