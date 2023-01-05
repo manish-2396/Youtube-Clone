@@ -74,7 +74,7 @@ const Home = () => {
           {videoData &&
             videoData.map((e) => {
               return (
-                <Box key={e.etag}>
+                <Box key={e.etag} display={e.id.videoId?"" : "none"}>
                   <Link to={`/${text}/${e.id.videoId}`}>
                     <Box
                       as="iframe"
