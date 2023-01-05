@@ -43,7 +43,7 @@ const Single = () => {
 
   useEffect(() => {
     document.title = singledata?.snippet?.title;
-  }, [data]);
+  }, [data , singledata]);
 
   return (
     <Box p="2rem" justify="space-between" flexWrap="wrap">
