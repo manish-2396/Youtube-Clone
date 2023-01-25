@@ -2,7 +2,7 @@ import axios from "axios";
 import * as types from "./actionTypes";
 
 
-let api1 = ""
+let api1 = "AIzaSyAdsofG3jqDEg3ty4CRsVRBNy9FD0c8KUY"
 
 export const getdata = (payload) => (dispatch) => {
   dispatch({ type: types.GET_DATA_REQUEST });

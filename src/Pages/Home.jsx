@@ -76,11 +76,7 @@ const Home = () => {
               return (
                 <Box key={e.etag} display={e.id.videoId?"" : "none"}>
                   <Link to={`/${text}/${e.id.videoId}`}>
-                    <Box
-                      as="iframe"
-                      w="100%"
-                      src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                    />
+                    <Image src={e?.snippet?.thumbnails.high.url} alt=""/>
                     <br />
                     <Heading fontSize={15}>{e.snippet.title}</Heading>
                   </Link>
