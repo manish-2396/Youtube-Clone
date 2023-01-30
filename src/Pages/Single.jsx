@@ -34,7 +34,7 @@ const Single = () => {
   const { data } = useSelector((store) => store.Video);
 
   let singledata;
-
+console.log(data)
   if (data) {
     singledata = data.find((e) => e.id.videoId === id);
   }
@@ -46,13 +46,15 @@ const Single = () => {
   }, [data , singledata]);
 
   return (
-    <Box p="2rem" justify="space-between" flexWrap="wrap">
-      <Show above="lg">
+    <Box  p="2rem" justify="space-between" display="flex" flexWrap="wrap" justifyContent="space-between">
+      <Box>
+        <Show above="lg">
         <Box height="auto" maxW="50rem">
           <AspectRatio maxW="98%" ratio={2}>
             <iframe
               title="naruto"
               src={`https://www.youtube.com/embed/${singledata?.id?.videoId}`}
+              allow="autoplay; encrypted-media"
               allowFullScreen
             />
           </AspectRatio>
@@ -91,8 +93,8 @@ const Single = () => {
             <iframe
               title="naruto"
               src={`https://www.youtube.com/embed/${singledata?.id?.videoId}`}
-              allowFullScreen
-            />
+              allow="autoplay *; fullscreen *" allowfullscreen="true" 
+            ></iframe>
           </AspectRatio>
           <br />
           <Heading fontSize={20} maxW="20rem" textAlign="left">
@@ -122,6 +124,8 @@ const Single = () => {
           </Box>
         </Box>
       </Show>
+      </Box>
+      
 
       <Box>
         <Show above="lg">
@@ -131,12 +135,8 @@ const Single = () => {
                 return (
                   <HStack>
                     <Box key={e.id.videoId} maxW="25rem" mr="3rem">
-                      <Link to={`/${e.id.videoId}`}>
-                        <Box
-                          as="iframe"
-                          w="10rem%"
-                          src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                        />
+                      <Link to={`/${search}/${e.id.videoId}`}>
+                      <Image w="10rem" src={e?.snippet?.thumbnails.high.url} alt=""/>
                         <br />
                       </Link>
                     </Box>
@@ -161,13 +161,8 @@ const Single = () => {
                 return (
                   <VStack pt="2rem">
                     <Box key={e.id.videoId} maxW="20rem">
-                      <Link to={`/${e.id.videoId}`}>
-                        <Box
-                          as="iframe"
-                          w="10rem%"
-                          src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                        />
-
+                      <Link to={`/${search}/${e.id.videoId}`}>
+                      <Image src={e?.snippet?.thumbnails.high.url} alt=""/>
                         <br />
                       </Link>
                     </Box>
